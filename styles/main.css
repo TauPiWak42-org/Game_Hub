@@ -1,0 +1,270 @@
+/* === ОБЩИЕ СТИЛИ === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* === ШАПКА === */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffd700, #c9a800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* === СЕТКА ИГР === */
+#gameGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 10px;
+}
+
+/* === КАРТОЧКА ИГРЫ === */
+.game-card {
+    background: linear-gradient(145deg, #1a1a1a, #141414);
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    padding: 25px 20px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #ffd700, #c9a800, #ffd700);
+    background-size: 300% 300%;
+    border-radius: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.game-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #ffd700;
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.15);
+}
+
+.game-card:hover::before {
+    opacity: 1;
+}
+
+.game-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.game-card .title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.game-card .badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(255, 215, 0, 0.15);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.game-card .release-count {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 8px;
+}
+
+/* === КОНТЕКСТНОЕ МЕНЮ === */
+.context-menu {
+    position: fixed;
+    background: linear-gradient(145deg, #1e1e1e, #161616);
+    border: 1px solid #ffd700;
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 220px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.05);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95) translateY(-10px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.context-menu.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.context-menu li {
+    padding: 12px 20px;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    border-left: 3px solid transparent;
+}
+
+.context-menu li:hover {
+    background: rgba(255, 215, 0, 0.08);
+    color: #ffd700;
+    border-left-color: #ffd700;
+    padding-left: 24px;
+}
+
+.context-menu li .author-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: rgba(255, 215, 0, 0.12);
+    color: #ffd700;
+    margin-left: auto;
+}
+
+.context-menu .menu-header {
+    padding: 10px 20px 8px 20px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666;
+    border-bottom: 1px solid #2a2a2a;
+    margin-bottom: 4px;
+}
+
+.context-menu .menu-divider {
+    height: 1px;
+    background: #2a2a2a;
+    margin: 4px 12px;
+}
+
+/* === АНИМАЦИЯ ПОЯВЛЕНИЯ КАРТОЧЕК === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.game-card:nth-child(1) { animation-delay: 0.05s; }
+.game-card:nth-child(2) { animation-delay: 0.10s; }
+.game-card:nth-child(3) { animation-delay: 0.15s; }
+.game-card:nth-child(4) { animation-delay: 0.20s; }
+.game-card:nth-child(5) { animation-delay: 0.25s; }
+.game-card:nth-child(6) { animation-delay: 0.30s; }
+
+/* === АДАПТИВ === */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    #gameGrid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+    }
+    
+    .game-card {
+        padding: 20px 15px;
+        min-height: 100px;
+    }
+    
+    .game-card .title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #gameGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .context-menu {
+        min-width: 180px;
+        left: 10px !important;
+        right: 10px !important;
+    }
+}
