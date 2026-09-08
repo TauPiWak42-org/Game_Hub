@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 450px; /* ← УМЕНЬШИЛИ ВДВОЕ (было 900px) */
     width: 100%;
     margin: 0 auto;
 }
@@ -25,11 +25,11 @@ body {
 /* === ШАПКА === */
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px; /* ← уменьшили отступ (было 40px) */
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2.2rem; /* ← уменьшили размер (было 3rem) */
     font-weight: 700;
     background: linear-gradient(135deg, #ffd700, #c9a800);
     -webkit-background-clip: text;
@@ -41,8 +41,8 @@ h1 {
 
 .subtitle {
     color: #888;
-    font-size: 1rem;
-    margin-top: 8px;
+    font-size: 0.85rem; /* ← уменьшили размер (было 1rem) */
+    margin-top: 6px;
     letter-spacing: 1px;
 }
 
@@ -50,7 +50,7 @@ h1 {
 #gameGrid {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* ← уменьшили отступ между строками */
+    gap: 8px;
     padding: 10px 0;
 }
 
@@ -58,15 +58,15 @@ h1 {
 .game-card {
     background: linear-gradient(145deg, #1a1a1a, #141414);
     border: 1px solid #2a2a2a;
-    border-radius: 10px; /* ← уменьшили скругление */
-    padding: 10px 18px; /* ← уменьшили отступы ВДВОЕ (было 16px 24px) */
+    border-radius: 10px;
+    padding: 10px 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
     position: relative;
     overflow: hidden;
-    min-height: 50px; /* ← уменьшили высоту (было 70px) */
+    min-height: 50px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: default;
 }
@@ -78,7 +78,7 @@ h1 {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(135deg, rgb(198, 190, 0), rgb(198, 190, 0), rgb(198, 190, 0)); /* ← НОВЫЙ ЦВЕТ */
+    background: linear-gradient(135deg, rgb(198, 190, 0), rgb(198, 190, 0), rgb(198, 190, 0));
     background-size: 300% 300%;
     border-radius: 12px;
     opacity: 0;
@@ -95,8 +95,8 @@ h1 {
 
 .game-card:hover {
     transform: translateX(5px);
-    border-color: rgb(198, 190, 0); /* ← НОВЫЙ ЦВЕТ */
-    box-shadow: 0 5px 30px rgba(198, 190, 0, 0.1); /* ← НОВЫЙ ЦВЕТ */
+    border-color: rgb(198, 190, 0);
+    box-shadow: 0 5px 30px rgba(198, 190, 0, 0.1);
 }
 
 .game-card:hover::before {
@@ -107,19 +107,19 @@ h1 {
 .game-card .left-section {
     display: flex;
     align-items: center;
-    gap: 12px; /* ← уменьшили отступ (было 16px) */
+    gap: 12px;
     flex: 1;
     min-width: 0;
     user-select: none;
 }
 
 .game-card .icon {
-    font-size: 1.4rem; /* ← уменьшили размер (было 1.8rem) */
+    font-size: 1.4rem;
     flex-shrink: 0;
 }
 
 .game-card .title {
-    font-size: 1rem; /* ← уменьшили размер (было 1.15rem) */
+    font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
     letter-spacing: 0.3px;
@@ -132,14 +132,14 @@ h1 {
 .game-card .releases-section {
     display: flex;
     align-items: center;
-    gap: 8px; /* ← уменьшили отступ (было 10px) */
+    gap: 8px;
     flex-shrink: 0;
 }
 
 .game-card .release-btn {
-    padding: 4px 12px; /* ← уменьшили отступы (было 6px 16px) */
-    border-radius: 16px; /* ← уменьшили скругление (было 20px) */
-    font-size: 0.65rem; /* ← уменьшили размер (было 0.75rem) */
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.65rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -187,30 +187,19 @@ h1 {
 }
 
 .game-card .release-btn .author-label {
-    font-size: 0.55rem; /* ← уменьшили размер (было 0.6rem) */
+    font-size: 0.55rem;
     opacity: 0.6;
     margin-right: 4px;
 }
 
 .game-card .no-release {
-    font-size: 0.7rem; /* ← уменьшили размер (было 0.75rem) */
+    font-size: 0.7rem;
     color: #555;
     font-style: italic;
 }
 
-/* === БЕЙДЖ "2 РЕЛИЗА" === */
-.game-card .badge-new {
-    display: inline-block;
-    padding: 1px 8px; /* ← уменьшили отступы (было 2px 10px) */
-    border-radius: 10px; /* ← уменьшили скругление (было 12px) */
-    font-size: 0.5rem; /* ← уменьшили размер (было 0.6rem) */
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background: linear-gradient(135deg, #ffd700, #c9a800);
-    color: #0a0a0a;
-    margin-left: 6px;
-}
+/* === БЕЙДЖ "2 РЕЛИЗА" - ПОЛНОСТЬЮ УДАЛЕН === */
+/* .game-card .badge-new { ... } — УДАЛЕНО */
 
 /* === АНИМАЦИЯ ПОЯВЛЕНИЯ === */
 @keyframes fadeInUp {
@@ -237,9 +226,14 @@ h1 {
 .game-card:nth-child(6) { animation-delay: 0.18s; }
 
 /* === АДАПТИВ === */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    
     h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
     
     .game-card {
@@ -275,7 +269,7 @@ h1 {
     }
     
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     
     .game-card {
