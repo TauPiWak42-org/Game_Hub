@@ -59,19 +59,16 @@ function renderGames() {
             });
         }
         
+        // УБРАЛИ БЕЙДЖ "2 РЕЛИЗА"
         card.innerHTML = `
             <div class="left-section">
                 <span class="icon">${game.icon || '🎮'}</span>
                 <span class="title">${game.title}</span>
-                ${game.releases.length >= 2 ? '<span class="badge-new">2 релиза</span>' : ''}
             </div>
             <div class="releases-section">
                 ${releasesHTML}
             </div>
         `;
-        
-        // УБИРАЕМ ОБРАБОТЧИК КЛИКА ПО КАРТОЧКЕ
-        // card.addEventListener('click', ...) — УДАЛЕНО
         
         // Обработчики только для кнопок релизов
         const releaseBtns = card.querySelectorAll('.release-btn');
