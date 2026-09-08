@@ -70,24 +70,14 @@ function renderGames() {
             </div>
         `;
         
-        // Обработчик клика по карточке (открывает первый релиз по умолчанию)
-        card.addEventListener('click', (e) => {
-            // Если кликнули на кнопку релиза — не обрабатываем
-            if (e.target.closest('.release-btn')) return;
-            
-            // Открываем первый релиз
-            if (game.releases.length > 0) {
-                launchGame(game.releases[0].url);
-            } else {
-                alert('У этой игры нет релизов');
-            }
-        });
+        // УБИРАЕМ ОБРАБОТЧИК КЛИКА ПО КАРТОЧКЕ
+        // card.addEventListener('click', ...) — УДАЛЕНО
         
-        // Обработчики для кнопок релизов
+        // Обработчики только для кнопок релизов
         const releaseBtns = card.querySelectorAll('.release-btn');
         releaseBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Чтобы не сработал клик по карточке
+                e.stopPropagation();
                 const url = btn.dataset.url;
                 launchGame(url);
             });
