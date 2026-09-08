@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
 }
@@ -25,11 +25,11 @@ body {
 /* === ШАПКА === */
 header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
     background: linear-gradient(135deg, #ffd700, #c9a800);
     -webkit-background-clip: text;
@@ -41,35 +41,34 @@ h1 {
 
 .subtitle {
     color: #888;
-    font-size: 1.1rem;
-    margin-top: 10px;
+    font-size: 1rem;
+    margin-top: 8px;
     letter-spacing: 1px;
 }
 
-/* === СЕТКА ИГР === */
+/* === СПИСОК ИГР === */
 #gameGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0;
 }
 
-/* === КАРТОЧКА ИГРЫ === */
+/* === КАРТОЧКА ИГРЫ (СТРОКА) === */
 .game-card {
     background: linear-gradient(145deg, #1a1a1a, #141414);
     border: 1px solid #2a2a2a;
-    border-radius: 16px;
-    padding: 25px 20px;
+    border-radius: 12px;
+    padding: 16px 24px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
     position: relative;
     overflow: hidden;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    min-height: 70px;
 }
 
 .game-card::before {
@@ -81,7 +80,7 @@ h1 {
     bottom: -2px;
     background: linear-gradient(135deg, #ffd700, #c9a800, #ffd700);
     background-size: 300% 300%;
-    border-radius: 18px;
+    border-radius: 14px;
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: -1;
@@ -95,127 +94,126 @@ h1 {
 }
 
 .game-card:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateX(5px);
     border-color: #ffd700;
-    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.15);
+    box-shadow: 0 5px 30px rgba(255, 215, 0, 0.1);
 }
 
 .game-card:hover::before {
     opacity: 1;
 }
 
+/* === ЛЕВАЯ ЧАСТЬ: Иконка + Название === */
+.game-card .left-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
 .game-card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    display: block;
+    font-size: 1.8rem;
+    flex-shrink: 0;
 }
 
 .game-card .title {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: #ffffff;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.game-card .badge {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background: rgba(255, 215, 0, 0.15);
-    color: #ffd700;
-    border: 1px solid rgba(255, 215, 0, 0.2);
-}
-
-.game-card .release-count {
-    font-size: 0.75rem;
-    color: #888;
-    margin-top: 8px;
-}
-
-/* === КОНТЕКСТНОЕ МЕНЮ === */
-.context-menu {
-    position: fixed;
-    background: linear-gradient(145deg, #1e1e1e, #161616);
-    border: 1px solid #ffd700;
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 220px;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.05);
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0.95) translateY(-10px);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.context-menu.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1) translateY(0);
-}
-
-.context-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.context-menu li {
-    padding: 12px 20px;
-    color: #e0e0e0;
-    cursor: pointer;
-    transition: all 0.2s ease;
+/* === ПРАВАЯ ЧАСТЬ: Релизы === */
+.game-card .releases-section {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.95rem;
-    border-left: 3px solid transparent;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
-.context-menu li:hover {
+.game-card .release-btn {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
     background: rgba(255, 215, 0, 0.08);
     color: #ffd700;
-    border-left-color: #ffd700;
-    padding-left: 24px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.context-menu li .author-tag {
+.game-card .release-btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+}
+
+.game-card .release-btn.kozel {
+    border-color: rgba(100, 200, 255, 0.3);
+    background: rgba(100, 200, 255, 0.08);
+    color: #64c8ff;
+}
+
+.game-card .release-btn.kozel:hover {
+    background: rgba(100, 200, 255, 0.2);
+    border-color: #64c8ff;
+    box-shadow: 0 0 20px rgba(100, 200, 255, 0.15);
+}
+
+.game-card .release-btn.tau {
+    border-color: rgba(255, 100, 150, 0.3);
+    background: rgba(255, 100, 150, 0.08);
+    color: #ff6496;
+}
+
+.game-card .release-btn.tau:hover {
+    background: rgba(255, 100, 150, 0.2);
+    border-color: #ff6496;
+    box-shadow: 0 0 20px rgba(255, 100, 150, 0.15);
+}
+
+.game-card .release-btn .author-label {
+    font-size: 0.6rem;
+    opacity: 0.6;
+    margin-right: 4px;
+}
+
+.game-card .no-release {
+    font-size: 0.75rem;
+    color: #555;
+    font-style: italic;
+}
+
+/* === БЕЙДЖ "НОВИНКА" (опционально) === */
+.game-card .badge-new {
     display: inline-block;
     padding: 2px 10px;
     border-radius: 12px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    background: rgba(255, 215, 0, 0.12);
-    color: #ffd700;
-    margin-left: auto;
-}
-
-.context-menu .menu-header {
-    padding: 10px 20px 8px 20px;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #666;
-    border-bottom: 1px solid #2a2a2a;
-    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #ffd700, #c9a800);
+    color: #0a0a0a;
+    margin-left: 8px;
 }
 
-.context-menu .menu-divider {
-    height: 1px;
-    background: #2a2a2a;
-    margin: 4px 12px;
-}
-
-/* === АНИМАЦИЯ ПОЯВЛЕНИЯ КАРТОЧЕК === */
+/* === АНИМАЦИЯ ПОЯВЛЕНИЯ === */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -224,47 +222,74 @@ h1 {
 }
 
 .game-card {
-    animation: fadeInUp 0.5s ease forwards;
+    animation: fadeInUp 0.4s ease forwards;
     opacity: 0;
 }
 
-.game-card:nth-child(1) { animation-delay: 0.05s; }
-.game-card:nth-child(2) { animation-delay: 0.10s; }
-.game-card:nth-child(3) { animation-delay: 0.15s; }
-.game-card:nth-child(4) { animation-delay: 0.20s; }
-.game-card:nth-child(5) { animation-delay: 0.25s; }
-.game-card:nth-child(6) { animation-delay: 0.30s; }
+.game-card:nth-child(1) { animation-delay: 0.03s; }
+.game-card:nth-child(2) { animation-delay: 0.06s; }
+.game-card:nth-child(3) { animation-delay: 0.09s; }
+.game-card:nth-child(4) { animation-delay: 0.12s; }
+.game-card:nth-child(5) { animation-delay: 0.15s; }
+.game-card:nth-child(6) { animation-delay: 0.18s; }
 
 /* === АДАПТИВ === */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.5rem;
-    }
-    
-    #gameGrid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 15px;
+        font-size: 2.2rem;
     }
     
     .game-card {
-        padding: 20px 15px;
-        min-height: 100px;
+        padding: 14px 18px;
+        flex-wrap: wrap;
+        gap: 12px;
+        min-height: 60px;
+    }
+    
+    .game-card .left-section {
+        flex: 1 1 100%;
     }
     
     .game-card .title {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+    
+    .game-card .releases-section {
+        flex: 1 1 100%;
+        justify-content: flex-start;
+        padding-left: 52px;
+    }
+    
+    .game-card .release-btn {
+        font-size: 0.7rem;
+        padding: 5px 12px;
     }
 }
 
 @media (max-width: 480px) {
-    #gameGrid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+    body {
+        padding: 10px;
     }
     
-    .context-menu {
-        min-width: 180px;
-        left: 10px !important;
-        right: 10px !important;
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .game-card {
+        padding: 12px 14px;
+        min-height: 50px;
+    }
+    
+    .game-card .icon {
+        font-size: 1.4rem;
+    }
+    
+    .game-card .title {
+        font-size: 0.9rem;
+    }
+    
+    .game-card .release-btn {
+        font-size: 0.65rem;
+        padding: 4px 10px;
     }
 }
