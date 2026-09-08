@@ -1,0 +1,74 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "title": "Dungeon Master Idle",
+      "icon": "⚔️",
+      "releases": [
+        {
+          "author": "Kozel",
+          "url": "https://taupiwak42-org.github.io/Dungeon_Master_Idle/D_M_I_0.1.009.html"
+        },
+        {
+          "author": "TauPiWak",
+          "url": "https://taupiwak42-org.github.io/Dungeon_Master_Idle/D_M_I_0.2.001.html"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Shelupon.exe",
+      "icon": "🖥️",
+      "releases": [
+        {
+          "author": "TauPiWak",
+          "url": "https://taupiwak42-org.github.io/Shelupon.exe/"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Blood and Cards",
+      "icon": "🃏",
+      "releases": [
+        {
+          "author": "Kozel",
+          "url": "https://taupiwak42-org.github.io/blood_and_cards/"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Auto_RPG",
+      "icon": "🎲",
+      "releases": [
+        {
+          "author": "Kozel",
+          "url": "https://taupiwak42-org.github.io/Auto_RPG/"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Pixel Wars",
+      "icon": "👾",
+      "releases": [
+        {
+          "author": "Kozel",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Space Invaders",
+      "icon": "🚀",
+      "releases": [
+        {
+          "author": "Kozel",
+          "url": "#"
+        }
+      ]
+    }
+  ]
+}
