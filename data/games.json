@@ -50,12 +50,12 @@
     },
     {
       "id": 5,
-      "title": "Placeholder",
-      "icon": "👾",
+      "title": "Grim Farm",
+      "icon": "🌾",
       "releases": [
         {
-          "author": "none",
-          "url": "#"
+          "author": "Kozel",
+          "url": "https://taupiwak42-org.github.io/Grim-Farm/"
         }
       ]
     },
