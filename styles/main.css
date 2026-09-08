@@ -50,7 +50,7 @@ h1 {
 #gameGrid {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px; /* ← уменьшили отступ между строками */
     padding: 10px 0;
 }
 
@@ -58,17 +58,17 @@ h1 {
 .game-card {
     background: linear-gradient(145deg, #1a1a1a, #141414);
     border: 1px solid #2a2a2a;
-    border-radius: 12px;
-    padding: 16px 24px;
+    border-radius: 10px; /* ← уменьшили скругление */
+    padding: 10px 18px; /* ← уменьшили отступы ВДВОЕ (было 16px 24px) */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 15px;
     position: relative;
     overflow: hidden;
-    min-height: 70px;
+    min-height: 50px; /* ← уменьшили высоту (было 70px) */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: default; /* ← Убираем курсор pointer */
+    cursor: default;
 }
 
 .game-card::before {
@@ -78,9 +78,9 @@ h1 {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(135deg, #ffd700, #c9a800, #ffd700);
+    background: linear-gradient(135deg, rgb(198, 190, 0), rgb(198, 190, 0), rgb(198, 190, 0)); /* ← НОВЫЙ ЦВЕТ */
     background-size: 300% 300%;
-    border-radius: 14px;
+    border-radius: 12px;
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: -1;
@@ -95,31 +95,31 @@ h1 {
 
 .game-card:hover {
     transform: translateX(5px);
-    border-color: #ffd700;
-    box-shadow: 0 5px 30px rgba(255, 215, 0, 0.1);
+    border-color: rgb(198, 190, 0); /* ← НОВЫЙ ЦВЕТ */
+    box-shadow: 0 5px 30px rgba(198, 190, 0, 0.1); /* ← НОВЫЙ ЦВЕТ */
 }
 
 .game-card:hover::before {
     opacity: 1;
 }
 
-/* === ЛЕВАЯ ЧАСТЬ: Иконка + Название (НЕ КЛИКАБЕЛЬНЫ) === */
+/* === ЛЕВАЯ ЧАСТЬ: Иконка + Название === */
 .game-card .left-section {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px; /* ← уменьшили отступ (было 16px) */
     flex: 1;
     min-width: 0;
-    user-select: none; /* ← Запрещаем выделение текста */
+    user-select: none;
 }
 
 .game-card .icon {
-    font-size: 1.8rem;
+    font-size: 1.4rem; /* ← уменьшили размер (было 1.8rem) */
     flex-shrink: 0;
 }
 
 .game-card .title {
-    font-size: 1.15rem;
+    font-size: 1rem; /* ← уменьшили размер (было 1.15rem) */
     font-weight: 600;
     color: #ffffff;
     letter-spacing: 0.3px;
@@ -132,14 +132,14 @@ h1 {
 .game-card .releases-section {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px; /* ← уменьшили отступ (было 10px) */
     flex-shrink: 0;
 }
 
 .game-card .release-btn {
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.75rem;
+    padding: 4px 12px; /* ← уменьшили отступы (было 6px 16px) */
+    border-radius: 16px; /* ← уменьшили скругление (было 20px) */
+    font-size: 0.65rem; /* ← уменьшили размер (было 0.75rem) */
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -160,54 +160,56 @@ h1 {
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.05);
 }
 
+/* === КОЗЕЛ - РОЗОВЫЙ === */
 .game-card .release-btn.kozel {
-    border-color: rgba(100, 200, 255, 0.3);
-    background: rgba(100, 200, 255, 0.08);
-    color: #64c8ff;
-}
-
-.game-card .release-btn.kozel:hover {
-    background: rgba(100, 200, 255, 0.1);
-    border-color: #64c8ff;
-    box-shadow: 0 0 15px rgba(100, 200, 255, 0.05);
-}
-
-.game-card .release-btn.tau {
     border-color: rgba(255, 100, 150, 0.3);
     background: rgba(255, 100, 150, 0.08);
     color: #ff6496;
 }
 
-.game-card .release-btn.tau:hover {
+.game-card .release-btn.kozel:hover {
     background: rgba(255, 100, 150, 0.1);
     border-color: #ff6496;
     box-shadow: 0 0 15px rgba(255, 100, 150, 0.05);
 }
 
+/* === TAU - ГОЛУБОЙ === */
+.game-card .release-btn.tau {
+    border-color: rgba(100, 200, 255, 0.3);
+    background: rgba(100, 200, 255, 0.08);
+    color: #64c8ff;
+}
+
+.game-card .release-btn.tau:hover {
+    background: rgba(100, 200, 255, 0.1);
+    border-color: #64c8ff;
+    box-shadow: 0 0 15px rgba(100, 200, 255, 0.05);
+}
+
 .game-card .release-btn .author-label {
-    font-size: 0.6rem;
+    font-size: 0.55rem; /* ← уменьшили размер (было 0.6rem) */
     opacity: 0.6;
     margin-right: 4px;
 }
 
 .game-card .no-release {
-    font-size: 0.75rem;
+    font-size: 0.7rem; /* ← уменьшили размер (было 0.75rem) */
     color: #555;
     font-style: italic;
 }
 
-/* === БЕЙДЖ "НОВИНКА" (опционально) === */
+/* === БЕЙДЖ "2 РЕЛИЗА" === */
 .game-card .badge-new {
     display: inline-block;
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-size: 0.6rem;
+    padding: 1px 8px; /* ← уменьшили отступы (было 2px 10px) */
+    border-radius: 10px; /* ← уменьшили скругление (было 12px) */
+    font-size: 0.5rem; /* ← уменьшили размер (было 0.6rem) */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     background: linear-gradient(135deg, #ffd700, #c9a800);
     color: #0a0a0a;
-    margin-left: 8px;
+    margin-left: 6px;
 }
 
 /* === АНИМАЦИЯ ПОЯВЛЕНИЯ === */
@@ -241,10 +243,10 @@ h1 {
     }
     
     .game-card {
-        padding: 14px 18px;
+        padding: 8px 14px;
         flex-wrap: wrap;
-        gap: 12px;
-        min-height: 60px;
+        gap: 8px;
+        min-height: 45px;
     }
     
     .game-card .left-section {
@@ -252,18 +254,18 @@ h1 {
     }
     
     .game-card .title {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .game-card .releases-section {
         flex: 1 1 100%;
         justify-content: flex-start;
-        padding-left: 52px;
+        padding-left: 42px;
     }
     
     .game-card .release-btn {
-        font-size: 0.7rem;
-        padding: 5px 12px;
+        font-size: 0.6rem;
+        padding: 4px 10px;
     }
 }
 
@@ -277,20 +279,20 @@ h1 {
     }
     
     .game-card {
-        padding: 12px 14px;
-        min-height: 50px;
+        padding: 8px 12px;
+        min-height: 40px;
     }
     
     .game-card .icon {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
     
     .game-card .title {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     
     .game-card .release-btn {
-        font-size: 0.65rem;
-        padding: 4px 10px;
+        font-size: 0.55rem;
+        padding: 3px 8px;
     }
 }
