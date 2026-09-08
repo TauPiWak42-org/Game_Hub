@@ -17,17 +17,14 @@ async function loadGames() {
 // === ЭЛЕМЕНТЫ ===
 const grid = document.getElementById('gameGrid');
 const loading = document.getElementById('loading');
-const contextMenu = document.getElementById('contextMenu');
-const menuList = document.getElementById('menuList');
 
 let games = [];
-let currentGame = null;
 
-// === ОТРИСОВКА КАРТОЧЕК ===
+// === ОТРИСОВКА КАРТОЧЕК (СПИСОК) ===
 function renderGames() {
     // Скрываем загрузку, показываем сетку
     loading.style.display = 'none';
-    grid.style.display = 'grid';
+    grid.style.display = 'flex';
     
     grid.innerHTML = '';
     
@@ -35,102 +32,69 @@ function renderGames() {
         const card = document.createElement('div');
         card.className = 'game-card';
         card.dataset.id = game.id;
-        card.style.animationDelay = `${0.05 * (index + 1)}s`;
+        card.style.animationDelay = `${0.03 * (index + 1)}s`;
         
-        const releaseCount = game.releases.length;
-        const releaseText = releaseCount === 1 ? '1 релиз' : `${releaseCount} релиза`;
+        // Собираем HTML для релизов
+        let releasesHTML = '';
+        
+        if (game.releases.length === 0) {
+            releasesHTML = '<span class="no-release">Нет релизов</span>';
+        } else {
+            // Сортируем релизы: сначала Kozel, потом TauPiWak
+            const sortedReleases = [...game.releases].sort((a, b) => {
+                if (a.author === 'Kozel') return -1;
+                if (b.author === 'Kozel') return 1;
+                return 0;
+            });
+            
+            sortedReleases.forEach(release => {
+                const authorClass = release.author === 'Kozel' ? 'kozel' : 'tau';
+                const emoji = release.author === 'Kozel' ? '🐺' : '🐉';
+                releasesHTML += `
+                    <button class="release-btn ${authorClass}" data-url="${release.url}">
+                        <span class="author-label">${emoji}</span>
+                        ${release.author}
+                    </button>
+                `;
+            });
+        }
         
         card.innerHTML = `
-            <span class="icon">${game.icon || '🎮'}</span>
-            <div class="title">${game.title}</div>
-            <span class="badge">${releaseText}</span>
-            <span class="release-count">▼ Кликните для выбора</span>
+            <div class="left-section">
+                <span class="icon">${game.icon || '🎮'}</span>
+                <span class="title">${game.title}</span>
+                ${game.releases.length >= 2 ? '<span class="badge-new">2 релиза</span>' : ''}
+            </div>
+            <div class="releases-section">
+                ${releasesHTML}
+            </div>
         `;
         
+        // Обработчик клика по карточке (открывает первый релиз по умолчанию)
         card.addEventListener('click', (e) => {
-            e.stopPropagation();
-            showMenu(e, game);
+            // Если кликнули на кнопку релиза — не обрабатываем
+            if (e.target.closest('.release-btn')) return;
+            
+            // Открываем первый релиз
+            if (game.releases.length > 0) {
+                launchGame(game.releases[0].url);
+            } else {
+                alert('У этой игры нет релизов');
+            }
+        });
+        
+        // Обработчики для кнопок релизов
+        const releaseBtns = card.querySelectorAll('.release-btn');
+        releaseBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Чтобы не сработал клик по карточке
+                const url = btn.dataset.url;
+                launchGame(url);
+            });
         });
         
         grid.appendChild(card);
     });
-}
-
-// === ПОКАЗ МЕНЮ ===
-function showMenu(event, game) {
-    currentGame = game;
-    
-    // Очищаем меню
-    menuList.innerHTML = '';
-    
-    // Добавляем заголовок
-    const header = document.createElement('li');
-    header.className = 'menu-header';
-    header.textContent = game.title;
-    menuList.appendChild(header);
-    
-    // Добавляем разделитель
-    const divider = document.createElement('li');
-    divider.className = 'menu-divider';
-    divider.style.padding = '0';
-    divider.style.height = '1px';
-    divider.style.background = '#2a2a2a';
-    divider.style.margin = '4px 12px';
-    menuList.appendChild(divider);
-    
-    // Добавляем пункты релизов
-    game.releases.forEach((release) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <span>${release.author === 'Kozel' ? '🐺' : '🐉'} ${release.author}</span>
-            <span class="author-tag">${release.author === 'Kozel' ? 'KZ' : 'TPW'}</span>
-        `;
-        
-        li.addEventListener('click', (e) => {
-            e.stopPropagation();
-            launchGame(release.url);
-            hideMenu();
-        });
-        
-        menuList.appendChild(li);
-    });
-    
-    // Позиционируем меню
-    positionMenu(event);
-    
-    // Показываем меню
-    contextMenu.classList.remove('hidden');
-    requestAnimationFrame(() => {
-        contextMenu.classList.add('visible');
-    });
-}
-
-// === ПОЗИЦИОНИРОВАНИЕ МЕНЮ ===
-function positionMenu(event) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const menuWidth = 240;
-    const menuHeight = 200;
-    
-    let x = rect.left;
-    let y = rect.bottom + 10;
-    
-    // Проверяем, не выходит ли меню за правый край
-    if (x + menuWidth > window.innerWidth - 10) {
-        x = window.innerWidth - menuWidth - 10;
-    }
-    
-    // Проверяем, не выходит ли меню за нижний край
-    if (y + menuHeight > window.innerHeight - 10) {
-        y = rect.top - menuHeight - 10;
-    }
-    
-    // Проверяем, не выходит ли меню за левый край
-    if (x < 10) {
-        x = 10;
-    }
-    
-    contextMenu.style.left = `${x}px`;
-    contextMenu.style.top = `${y}px`;
 }
 
 // === ЗАПУСК ИГРЫ ===
@@ -141,38 +105,6 @@ function launchGame(url) {
         alert('Ссылка на игру пока не добавлена');
     }
 }
-
-// === СКРЫТИЕ МЕНЮ ===
-function hideMenu() {
-    contextMenu.classList.remove('visible');
-    setTimeout(() => {
-        contextMenu.classList.add('hidden');
-    }, 200);
-}
-
-// === ЗАКРЫТИЕ МЕНЮ ПРИ КЛИКЕ ВНЕ ===
-document.addEventListener('click', (e) => {
-    if (!contextMenu.contains(e.target)) {
-        const isCard = e.target.closest('.game-card');
-        if (!isCard) {
-            hideMenu();
-        }
-    }
-});
-
-// === ЗАКРЫТИЕ МЕНЮ ПРИ ESC ===
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        hideMenu();
-    }
-});
-
-// === ОБРАБОТКА РЕСАЙЗА ===
-window.addEventListener('resize', () => {
-    if (contextMenu.classList.contains('visible')) {
-        hideMenu();
-    }
-});
 
 // === ИНИЦИАЛИЗАЦИЯ ===
 async function init() {
