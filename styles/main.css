@@ -13,14 +13,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px; /* ← уменьшили padding */
+    padding: 10px;
 }
 
 .container {
-    max-width: 100%; /* ← теперь всегда 100% */
+    max-width: 450px; /* ← вернули фиксированную ширину */
     width: 100%;
     margin: 0 auto;
-    padding: 0 10px; /* ← добавили отступы по бокам */
 }
 
 /* === ШАПКА === */
@@ -30,7 +29,7 @@ header {
 }
 
 h1 {
-    font-size: 1.8rem; /* ← размер как на мобилке */
+    font-size: 1.8rem;
     font-weight: 700;
     background: linear-gradient(135deg, #ffd700, #c9a800);
     -webkit-background-clip: text;
@@ -42,7 +41,7 @@ h1 {
 
 .subtitle {
     color: #888;
-    font-size: 0.8rem; /* ← размер как на мобилке */
+    font-size: 0.8rem;
     margin-top: 6px;
     letter-spacing: 1px;
 }
@@ -60,15 +59,15 @@ h1 {
     background: linear-gradient(145deg, #1a1a1a, #141414);
     border: 1px solid #2a2a2a;
     border-radius: 10px;
-    padding: 8px 12px; /* ← отступы как на мобилке */
+    padding: 8px 12px;
     display: flex;
-    flex-wrap: wrap; /* ← всегда переносим */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 8px; /* ← уменьшенный отступ */
+    gap: 8px;
     position: relative;
     overflow: hidden;
-    min-height: 40px; /* ← минимальная высота как на мобилке */
+    min-height: 40px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: default;
 }
@@ -110,18 +109,18 @@ h1 {
     display: flex;
     align-items: center;
     gap: 12px;
-    flex: 1 1 100%; /* ← всегда на всю ширину */
+    flex: 1 1 100%; /* ← занимает всю ширину */
     min-width: 0;
     user-select: none;
 }
 
 .game-card .icon {
-    font-size: 1.2rem; /* ← размер как на мобилке */
+    font-size: 1.2rem;
     flex-shrink: 0;
 }
 
 .game-card .title {
-    font-size: 0.8rem; /* ← размер как на мобилке */
+    font-size: 0.8rem;
     font-weight: 600;
     color: #ffffff;
     letter-spacing: 0.3px;
@@ -135,15 +134,15 @@ h1 {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex: 1 1 100%; /* ← всегда на всю ширину */
+    flex: 1 1 100%; /* ← занимает всю ширину */
     justify-content: flex-start;
-    padding-left: 42px; /* ← отступ под иконку как на мобилке */
+    padding-left: 42px; /* ← отступ под иконку */
 }
 
 .game-card .release-btn {
-    padding: 3px 8px; /* ← отступы как на мобилке */
+    padding: 3px 8px;
     border-radius: 16px;
-    font-size: 0.55rem; /* ← размер как на мобилке */
+    font-size: 0.55rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -191,7 +190,7 @@ h1 {
 }
 
 .game-card .release-btn .author-label {
-    font-size: 0.5rem; /* ← размер как на мобилке */
+    font-size: 0.5rem;
     opacity: 0.6;
     margin-right: 4px;
 }
@@ -225,6 +224,3 @@ h1 {
 .game-card:nth-child(4) { animation-delay: 0.12s; }
 .game-card:nth-child(5) { animation-delay: 0.15s; }
 .game-card:nth-child(6) { animation-delay: 0.18s; }
-
-/* === ВСЕ МЕДИА-ЗАПРОСЫ УДАЛЕНЫ === */
-/* Теперь стиль всегда как на мобилке */
