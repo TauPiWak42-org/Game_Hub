@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Hub</title>
-
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
-    
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎮 Game Hub</h1>
-            <p class="subtitle">Выберите игру для запуска</p>
+            <div class="logo">🎮</div>
+            <h1 class="title">GAME HUB</h1>
         </header>
 
         <div id="loading">⏳ Загрузка игр...</div>
         <main id="gameGrid"></main>
+    </div>
+
+    <div id="overlay" class="overlay hidden">
+        <div class="overlay-panel">
+            <button class="overlay-close" aria-label="Закрыть">✕</button>
+            <h2 class="overlay-title"></h2>
+            <div class="overlay-list"></div>
+        </div>
     </div>
 
     <script src="scripts/main.js"></script>

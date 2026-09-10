@@ -1,18 +1,22 @@
 {
+  "authors": {
+    "Kozel": {
+      "color": "#ff6496",
+      "emoji": "🐺"
+    },
+    "TauPiWak": {
+      "color": "#64c8ff",
+      "emoji": "🐉"
+    }
+  },
   "games": [
     {
       "id": 1,
       "title": "Dungeon Master Idle",
       "icon": "⚔️",
       "releases": [
-        {
-          "author": "Kozel",
-          "url": "https://taupiwak42-org.github.io/Dungeon_Master_Idle/D_M_I_0.1.009.html"
-        },
-        {
-          "author": "TauPiWak",
-          "url": "https://taupiwak42-org.github.io/Dungeon_Master_Idle/"
-        }
+        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/Dungeon_Master_Idle/D_M_I_0.1.009.html" },
+        { "author": "TauPiWak", "url": "https://taupiwak42-org.github.io/Dungeon_Master_Idle/" }
       ]
     },
     {
@@ -20,10 +24,7 @@
       "title": "Shelupon.exe",
       "icon": "🖥️",
       "releases": [
-        {
-          "author": "TauPiWak",
-          "url": "https://taupiwak42-org.github.io/Shelupon.exe/"
-        }
+        { "author": "TauPiWak", "url": "https://taupiwak42-org.github.io/Shelupon.exe/" }
       ]
     },
     {
@@ -31,10 +32,7 @@
       "title": "Blood and Cards",
       "icon": "🃏",
       "releases": [
-        {
-          "author": "Kozel",
-          "url": "https://taupiwak42-org.github.io/blood_and_cards/"
-        }
+        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/blood_and_cards/" }
       ]
     },
     {
@@ -42,10 +40,7 @@
       "title": "Auto_RPG",
       "icon": "🎲",
       "releases": [
-        {
-          "author": "Kozel",
-          "url": "https://taupiwak42-org.github.io/Auto_RPG/"
-        }
+        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/Auto_RPG/" }
       ]
     },
     {
@@ -53,10 +48,7 @@
       "title": "Grim Farm",
       "icon": "🌾",
       "releases": [
-        {
-          "author": "Kozel",
-          "url": "https://taupiwak42-org.github.io/Grim-Farm/"
-        }
+        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/Grim-Farm/" }
       ]
     },
     {
@@ -64,10 +56,7 @@
       "title": "Celestial Gems",
       "icon": "💎",
       "releases": [
-        {
-          "author": "Kozel",
-          "url": "https://taupiwak42-org.github.io/Celestial-Gems/"
-        }
+        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/Celestial-Gems/" }
       ]
     }
   ]
