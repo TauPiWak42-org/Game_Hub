@@ -1,63 +1,68 @@
-{
-  "authors": {
-    "Kozel": {
-      "color": "#ff6496",
-      "emoji": "🐐"
-    },
-    "TauPiWak": {
-      "color": "#64c8ff",
-      "emoji": "🗿"
-    }
-  },
-  "games": [
-    {
-      "id": 1,
-      "title": "Dungeon Master Idle",
-      "icon": "⚔️",
-      "releases": [
-        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/Dungeon_Master_Idle/D_M_I_0.1.009.html" },
-        { "author": "TauPiWak", "url": "https://taupiwak42-org.github.io/Dungeon_Master_Idle/" }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Shelupon.exe",
-      "icon": "🖥️",
-      "releases": [
-        { "author": "TauPiWak", "url": "https://taupiwak42-org.github.io/Shelupon.exe/" }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Blood and Cards",
-      "icon": "🃏",
-      "releases": [
-        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/Blood_And_Cards/" }
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Auto_RPG",
-      "icon": "🎲",
-      "releases": [
-        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/Auto_RPG/" }
-      ]
-    },
-    {
-      "id": 5,
-      "title": "Grim Farm",
-      "icon": "🌾",
-      "releases": [
-        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/Grim_Farm/" }
-      ]
-    },
-    {
-      "id": 6,
-      "title": "Celestial Gems",
-      "icon": "💎",
-      "releases": [
-        { "author": "Kozel", "url": "https://taupiwak42-org.github.io/Celestial_Gems/" }
-      ]
-    }
-  ]
-}
+{"authors":{
+"Kozel":{"color":"#ff6496",
+"emoji":"🐐"},
+
+"TauPiWak":
+{"color":"#64c8ff",
+"emoji":"🗿"}},
+
+"games":[{
+"id":1,
+"title":"Dungeon Master Idle",
+"icon":"⚔️",
+"releases":[{
+"author":"Kozel",
+"url":"https://taupiwak42-org.github.io/Dungeon_Master_Idle/D_M_I_0.1.009.html"}
+,{
+"author":"TauPiWak",
+"url":"https://taupiwak42-org.github.io/Dungeon_Master_Idle/"}]}
+
+,{
+"id":2,
+"title":"Shelupon.exe",
+"icon":"🖥️",
+"releases":[{
+"author":"TauPiWak",
+"url":"https://taupiwak42-org.github.io/Shelupon.exe/"}]}
+
+,{
+"id":3,
+"title":"Blood and Cards",
+"icon":"🃏",
+"releases":[{
+"author":"Kozel",
+"url":"https://taupiwak42-org.github.io/Blood_And_Cards/"}]}
+
+,{
+"id":4,
+"title":"Auto_RPG",
+"icon":"🎲",
+"releases":[{
+"author":"Kozel",
+"url":"https://taupiwak42-org.github.io/Auto_RPG/"}]}
+
+,{
+"id":5,
+"title":"Grim Farm",
+"icon":"🌾",
+"releases":[{
+"author":"Kozel",
+"url":"https://taupiwak42-org.github.io/Grim_Farm/"}]}
+
+,{
+"id":6,
+"title":"Celestial Gems",
+"icon":"💎",
+"releases":[{
+"author":"Kozel",
+"url":"https://taupiwak42-org.github.io/Celestial_Gems/"}]}
+
+,{
+"id":7,
+"title":"###",
+"icon":"###",
+"releases":[{
+"author":"###",
+"url":"###"}]}
+
+]}
