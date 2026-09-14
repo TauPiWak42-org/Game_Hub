@@ -58,11 +58,43 @@
 "url":"https://taupiwak42-org.github.io/Celestial_Gems/"}]}
 
 ,{
-"id":7,
-"title":"###",
-"icon":"###",
+"id":8,
+"title":"BALL",
+"icon":"🔴",
 "releases":[{
-"author":"###",
-"url":"###"}]}
+"author":"Kozel",
+"url":"https://taupiwak42-org.github.io/BALL_DEVYAT/"}]}
+
+,{
+"id":9,
+"title":"игра №9 ещё не вышла",
+"icon":"🤡",
+"releases":[{
+"author":"None",
+"url":"https://taupiwak42-org.github.io/Game_Hub/"}]}
+
+,{
+"id":10,
+"title":"игра №10 ещё не вышла",
+"icon":"жопа",
+"releases":[{
+"author":"None",
+"url":"https://taupiwak42-org.github.io/Game_Hub/"}]}
+
+,{
+"id":11,
+"title":"игра №11 ещё не вышла",
+"icon":"☺",
+"releases":[{
+"author":"None",
+"url":"https://taupiwak42-org.github.io/Game_Hub/"}]}
+
+,{
+"id":12,
+"title":"игра №12 ещё не вышла",
+"icon":"интересно сколько текста влезает вместо эмодзи? надо будет не забыть поменять эту строку перед релизом нашей новой игры №12 которая очевидно в РОТ даёт всем остальным играм (ну кроме небесных самоцветов - это просто имба, кто вообще будет спорить, согласны, узнали?)",
+"releases":[{
+"author":"None",
+"url":"https://taupiwak42-org.github.io/Game_Hub/"}]}
 
 ]}
